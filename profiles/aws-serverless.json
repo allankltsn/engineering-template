@@ -1,0 +1,5 @@
+{
+  "id": "aws-serverless",
+  "description": "AWS services and existing IaC",
+  "instructions": "Use Lambda/API Gateway/Cognito/S3 only when selected by project context; verify account/region/limits. Preserve existing SAM/Terraform ownership, least privilege, private encrypted S3, costs, DLQ/retry/idempotency/failure analysis. Lambda is conditional, not universal default. No apply/deploy authorization granted."
+}

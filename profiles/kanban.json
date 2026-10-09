@@ -1,0 +1,5 @@
+{
+  "id": "kanban",
+  "description": "Full Kanban registration",
+  "instructions": "Apply workflow/kanban.md and exact card templates. Cards directly in configured sprint directory without status subfolders. States open,pending,in-progress,in-review,rejected,blocked,completed,accepted,closed. Explicit legacy backlog import mapping to open. Execution-finished differs from principal-verified completed and human accepted. Preserve logs/time/postmortem and decisions; no overwrite of local VSCode settings."
+}

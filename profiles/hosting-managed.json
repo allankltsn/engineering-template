@@ -1,0 +1,8 @@
+{
+  "id": "hosting-managed",
+  "description": "Managed hosting with verified plan",
+  "instructions": "Confirm provider/exact plan, runtimes, database engines, process-manager/proxy, DNS/SSL/CDN/mail and limits. Hostinger hPanel/LiteSpeed/Apache/PM2 guidance is conditional/historical; never assume VPS privileges or plan features. Domain, resource budget and ports are explicit inputs.",
+  "conflicts": [
+    "vps-k3s"
+  ]
+}

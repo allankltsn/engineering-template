@@ -1,0 +1,5 @@
+{
+  "id": "nestjs-mikroorm",
+  "description": "NestJS/TypeScript/MikroORM",
+  "instructions": "Explicit knowledge profile: NestJS 10, TypeScript 5, MikroORM 6, PostgreSQL. Confirm actual versions. Retain thin controllers/services/repositories, class-validator DTOs, Swagger, strictNullChecks/noImplicitAny, compatible migrations and existing auth. No provisioning or assertion about existing project stack."
+}

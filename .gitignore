@@ -1,0 +1,20 @@
+# Dados locais e gerados; fontes canônicas permanecem versionadas.
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.cache/
+.serena/cache/
+.serena/memories/
+.claude/settings.local.json
+.codex/config.local.toml
+.worktrees/
+.claude/worktrees/
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+credentials*.json
+dist/
+build/
+node_modules/

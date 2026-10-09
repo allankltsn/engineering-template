@@ -1,0 +1,8 @@
+{
+  "id": "vps-k3s",
+  "description": "VPS/container/Kubernetes",
+  "instructions": "Confirm OS/provider/resources, actual Docker/k3s/Kubernetes/Traefik versions, context/namespace. Route to docker/kubernetes/ingress/deployment/sre/devsecops-infra as needed. Never inherit managed-hosting hPanel/PM2/Apache assumptions. Distinguish files/build/final-image/local/remote evidence. No operational mutation authorization granted.",
+  "conflicts": [
+    "hosting-managed"
+  ]
+}

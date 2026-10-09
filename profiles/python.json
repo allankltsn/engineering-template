@@ -1,0 +1,5 @@
+{
+  "id": "python",
+  "description": "Python with detected framework",
+  "instructions": "Detect framework from actual dependencies/imports/layout: FastAPI/Django/Flask, automation/data scripts or AI (Bedrock/LangGraph/Agno). Never silently select framework. Preserve typed signatures, explicit dependencies, stdlib preference, existing lint/type/test commands. Confirm versions."
+}
