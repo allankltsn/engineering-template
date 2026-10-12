@@ -10,7 +10,7 @@ read paths and report path. Declare instance identity and independence.
 
 Compliance: trace every criterion to artifacts and executed evidence; inspect
 omissions, scope expansion, unapproved design deviation and compatibility duties.
-Builds, cards and documents do not prove runtime/deployment or acceptance.
+Builds, issues and documents do not prove runtime/deployment or acceptance.
 
 Technical: inspect delta and surrounding contracts, logic, errors, persistence,
 concurrency, maintainability, dependencies, migrations and rollback. Use relevant

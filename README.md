@@ -54,7 +54,7 @@ São 17 especialistas de domínio e um reviewer. As oito ações rápidas são q
 
 A demanda passa por entendimento e desenho, planejamento, implementação, revisão independente, correção dos apontamentos e nova revisão até aprovação. QA e segurança são gates explícitos obrigatórios antes da conclusão: a pertinência define o escopo da avaliação, sem omissão silenciosa de nenhum gate. Verificação executada deve ser acompanhada de resultado e limites; arquivos presentes ou testes verdes não comprovam deploy nem aceitação manual.
 
-O board utiliza open, pending, in-progress, in-review, rejected, blocked, completed, accepted e closed. completed registra implementação e verificações concluídas; accepted exige a aceitação prevista; closed encerra o registro. Apontamentos retornam o trabalho à correção; bloqueios devem explicar o impedimento e a próxima ação.
+O gerenciador de projetos é o **GitHub Projects**: cada card é uma issue no repositório onde o trabalho acontece, reunida num único Project com os campos Status, Priority, Agent, Sprint, Due date e Completed at (contrato em `core/workflow/github-projects.md`, perfil `github-projects`). O Status utiliza open, pending, in-progress, in-review, rejected, blocked, completed, accepted e closed. completed registra implementação e verificações concluídas; accepted exige a aceitação prevista; closed encerra o registro. Apontamentos retornam o trabalho à correção; bloqueios devem explicar o impedimento e a próxima ação.
 
 O principal delega somente quando a sessão e o runtime autorizam subagentes. Se a capacidade estiver indisponível, coordene sessões especialistas independentes verificadas ou registre o impedimento; o principal não assume implementação nem parecer especializado. Produção, migrações e operações destrutivas seguem os gates explícitos do projeto e a autorização vigente.
 
@@ -64,7 +64,7 @@ O principal delega somente quando a sessão e o runtime autorizam subagentes. Se
 - [RTK](integrations/rtk/INSTRUCTIONS.md): uso explícito, sem interceptação automática no Codex.
 - [Superpowers](integrations/superpowers/README.md): mapeamento das skills de workflow, sem redistribuir plugin.
 - [Voltagent](integrations/voltagent/README.md): catálogo dos oito pacotes, configured_not_verified.
-- [VS Code Kanban](integrations/vscode/README.md): snippet portátil; mescle as chaves, preservando settings existentes.
+- [GitHub Projects](integrations/github-projects/README.md): scripts para criar o Project com os campos do contrato e os labels padrão; workflows automáticos desligados na interface.
 - [Configuração Claude](integrations/claude/settings.json): worktree.baseRef=head, sem permissões de commit pré-concedidas.
 
 Não copie credenciais, endpoints privados, caches, memórias ou configurações globais. Nenhuma dependência externa é instalada pelo pacote. A descoberta real de agentes/skills e a paridade de execução entre os provedores continuam pendentes de teste no runtime local.

@@ -1,4 +1,4 @@
-# Evidence: <task/card/checkpoint>
+# Evidence: <task/issue/checkpoint>
 Instance/function: <identity>
 UTC: <actual timestamp>
 Commit/snapshot/base: <SHA + local inventory/hashes/diff>

@@ -116,6 +116,9 @@ def render(source, providers, profiles, package=False):
     for name in profiles:
         if not ID.fullmatch(name):
             raise ValueError("invalid profile ID")
+        if f"profiles/{name}.json" not in files:
+            hint = " (renamed to github-projects: the board moved from Kanban Markdown to GitHub Projects)" if name == "kanban" else ""
+            raise ValueError(f"unknown profile: {name}{hint}")
         value = json.loads(files[f"profiles/{name}.json"])
         if value["id"] != name:
             raise ValueError("profile ID mismatch")

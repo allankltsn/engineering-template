@@ -4,7 +4,7 @@
 Principal always receives/decomposes request, clarifies objective, consults, questions,
 selects qualified specialists, sets scope/dependencies, routes messages/findings,
 tracks artifacts, checks evidence and communicates results. Principal can maintain
-briefs/cards/decisions and run evidence checks. Implementation, domain diagnosis
+briefs/issues/decisions and run evidence checks. Implementation, domain diagnosis
 and technical opinions belong to specialists. No generic coordinating subagent above
 them. Existing orchestration role means service mesh.
 
@@ -26,7 +26,7 @@ invent stack expertise or replace domain review/security.
 Request -> proportional approved spec -> plan -> scoped specialist implementation ->
 independent QA, compliance/technical review and security -> principal verification ->
 human acceptance when required. Superpowers owns phase automation when available;
-Kanban records execution/acceptance rather than acting as a second engine.
+The GitHub Projects board records execution/acceptance rather than acting as a second engine.
 Manual equivalent follows these same stages and records absent automation explicitly.
 Plans do not themselves authorize production mutations or migration of live config.
 

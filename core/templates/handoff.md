@@ -1,5 +1,5 @@
 # Portable handoff
-Task/card/spec/plan: <relative paths>
+Task issue URL; spec/plan: <relative paths>
 Current/next role and instance: <values>
 Snapshot/base: <SHA + complete local inventory/hashes/diff>
 Allowed paths/exclusions/actual capabilities: <values>

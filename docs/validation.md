@@ -18,4 +18,4 @@ Implementação e conteúdo tiveram revisão independente de QA, segurança e ar
 
 ## Limites
 
-Não foram executadas chamadas de modelo, descoberta/invocação real de cada agente ou skill, ativação de MCP, instalação de plugins externos nem validação visual do Kanban. Disponibilidade detectada no PATH não comprova funcionamento. Aprovação estática e testes locais não representam paridade de runtime entre provedores.
+Não foram executadas chamadas de modelo, descoberta/invocação real de cada agente ou skill, ativação de MCP, instalação de plugins externos nem validação visual do GitHub Projects (board, campos e workflows desligados) nem execução real dos scripts de setup contra a API do GitHub. Disponibilidade detectada no PATH não comprova funcionamento. Aprovação estática e testes locais não representam paridade de runtime entre provedores.

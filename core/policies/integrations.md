@@ -35,9 +35,12 @@ Check only safe bounded version/availability probes authorized by environment.
   biz and research at voltagent-subagents. Enabled settings do not prove installation,
   version, discovery or capability. Optional integration, no silent dependency or
   copying of marketplace artifacts/personal settings.
-- Kanban Markdown: optional VSCode integration. Use exact portable card contract;
-  extension may delete extra frontmatter keys. Verify round-trip behavior separately.
-  Generate proposed relative-path settings, never overwrite existing user settings.
+- GitHub Projects: project manager when the github-projects profile is selected. Use
+  the workflow/github-projects.md contract; detect gh (project/repo scopes) or GitHub MCP
+  Projects support, never request broader scopes or store tokens. Setup scripts only
+  create fields/labels; built-in Status automations are disabled by the principal in
+  the UI. CLI success does not prove board rendering or disabled automations.
+  Kanban Markdown (VSCode) is retired; existing cards import via the explicit mapping.
 - draw.io: optional hediet.vscode-drawio extension or compatible viewer. XML generation
   and parsing differ from actual rendering. Do not install/assume viewer.
 - Operational tools: kubectl/helm/istioctl/linkerd/aws/gh/argocd/docker, scanners

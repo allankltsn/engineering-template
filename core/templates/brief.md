@@ -1,5 +1,5 @@
 # Participation brief
-Task/card: <path/ID> | Objective: <behavior>
+Task/issue: <ID/URL> | Objective: <behavior>
 Spec/plan/artifacts: <paths>
 Domain/stack/framework/service/version: <verified or gap>
 Risk/phase/environment: <values>

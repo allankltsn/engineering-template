@@ -44,6 +44,18 @@ class TemplateTests(unittest.TestCase):
             elif path.endswith(".json"):
                 json.loads(data)
 
+    def test_github_projects_board(self):
+        _, output = template.render(ROOT, ["claude", "codex"], ["base", "github-projects"])
+        contract = output[".engineering/workflow/github-projects.md"].decode()
+        for state in ("open", "pending", "in-progress", "in-review", "rejected", "blocked", "completed", "accepted", "closed"):
+            self.assertIn(f"| {state} |", contract)
+        self.assertIn("Never use Done", contract)
+        self.assertIn(".engineering/templates/issue.md", output)
+        self.assertIn(".engineering/integrations/github-projects/setup-project.sh", output)
+        self.assertFalse(any("integrations/vscode" in p or "workflow/kanban" in p for p in output))
+        with self.assertRaisesRegex(ValueError, "renamed to github-projects"):
+            template.render(ROOT, ["claude"], ["base", "kanban"])
+
     def test_dry_run_and_idempotence(self):
         self.install(dry_run=True)
         self.assertFalse(self.target.exists())

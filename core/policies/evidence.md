@@ -13,7 +13,7 @@ Redact secrets before saving, preserving useful nonsecret evidence and redaction
 
 Distinguish static file inspection, unit/integration tests, build, final-image startup,
 local runtime, remote environment and human acceptance. Build green is not deployed.
-A card/file/report marked done is not evidence of its asserted behavior.
+An issue/file/report marked completed is not evidence of its asserted behavior.
 
 Every finding: stable ID, original/common severity, criterion, file:line/resource,
 reproduction or technical rationale, author, responsible fixer, resolution condition,
