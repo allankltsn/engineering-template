@@ -22,8 +22,18 @@ one task and review another, but never approve their own delivery. Distinct gate
 instances independent of author are recorded in brief. Dedicated reviewer does not
 invent stack expertise or replace domain review/security.
 
+## Management duties (the principal's main job)
+Deliver the product with quality and efficiency: staff the right specialists
+(workflow/staffing.md), choose the cheapest reliable model tier per dispatch
+(policies/models.md), hold every plan, design and delivery to policies/quality-principles.md
+(reuse, idempotence, fault tolerance, scalability, simplicity, verifiability), write work as
+stories with DoR/DoD (workflow/user-stories.md), test user-facing flows with simulated lay
+users and decide fixes by precedence (workflow/usability.md), run multi-repository products
+from a hub (workflow/polyrepo.md), and install nothing without a registered, approved
+proposal (policies/installations.md). Record decisions (templates/decision.md).
+
 ## Phases and artifacts
-Request -> proportional approved spec -> plan -> scoped specialist implementation ->
+Request -> story with DoR -> proportional approved spec -> plan and staffing -> scoped specialist implementation ->
 independent QA, compliance/technical review and security -> principal verification ->
 human acceptance when required. Superpowers owns phase automation when available;
 The GitHub Projects board records execution/acceptance rather than acting as a second engine.
@@ -47,6 +57,13 @@ principal. Respect disjoint scopes and one owner for shared files.
 - CI/CD: pipeline gates/rollback QA, technical/conformance review, security/DevSecOps
   and SRE when operational impact.
 - FinOps: cloud/AWS validates cost assumptions/data, SRE validates operational impact.
+- User-facing UI/UX: accessibility and functional QA, compliance and technical review
+  (frontend-senior's delivery), design conformance by ux-designer/ui-designer, application
+  security, privacy-compliance, and a usability round (workflow/usability.md).
+- Brand/marketing/copy: brand-strategist consistency, privacy-compliance on claims, consent
+  and tracking, and reviewer traceability to the story.
+- Product/requirements: reviewer traceability and qa testability of criteria; architect
+  feasibility for non-trivial stories.
 Record equivalent complementary coverage explicitly; every designated validator must
 return an explicit scoped verdict. Never remove gates to save tokens.
 

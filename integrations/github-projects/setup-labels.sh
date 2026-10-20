@@ -9,8 +9,14 @@ label() { gh label create "$1" -R "$REPO" --color "$2" --description "$3" --forc
 
 echo "Labels em $REPO:"
 for role in architect backend python aws hosting qa security kubernetes docker cicd devsecops-infra \
-            finops sre cloud ingress orchestration deployment reviewer implementer principal; do
+            finops sre cloud ingress orchestration deployment reviewer implementer principal             product-owner ux-researcher ux-designer ui-designer brand-strategist marketing             frontend-senior privacy-compliance lay-user scribe; do
   label "role:$role" "0e8a16" "Função responsável pela issue"
+done
+for type in epic story bug spike; do
+  label "type:$type" "5319e7" "Tipo do item (campo Type do Project)"
+done
+for tier in deep standard light; do
+  label "tier:$tier" "bfdadc" "Camada de modelo usada (policies/models.md)"
 done
 label checkpoint "fbca04" "Checkpoint de capacidade de uma tarefa"
 label retroativo "c5def5" "Registro retrospectivo explícito"

@@ -51,6 +51,7 @@ Claude source local settings allowed selected gh/git commands and worktree baseR
 head; these are personal operational state, not reusable permission policy.
 Claude plugin root components differ from project .claude components. Codex native
 agent/skill formats must be verified for target version; do not reuse Claude tool
-frontmatter or promise slash commands identically. Models inherit unless user has
-explicitly selected otherwise. Never claim textual restrictions are enforced merely
+frontmatter or promise slash commands identically. Model tiers are logical (policies/models.md);
+adapters render a model or reasoning effort per role from template.json, the principal may
+override per dispatch, and a field in a generated file never proves the runtime honored it. Never claim textual restrictions are enforced merely
 because generated definitions contain them.

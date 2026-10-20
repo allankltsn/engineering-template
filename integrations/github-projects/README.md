@@ -21,6 +21,7 @@ Depois, na interface do Project (o CLI não cobre estes itens):
    *Item reopened* e *Auto-close issue*. O Status só muda pelas regras de autoridade do contrato.
    *Item added to project* pode ficar ativo definindo Status = `open`.
 2. **Status**: confira que existem só as nove opções do contrato (o script substitui Todo/In Progress/Done).
+   O script também cria `Type` (epic, story, task, bug, spike) e `Estimate` (número) para histórias.
 3. **Views** sugeridas:
    - *Board* agrupado por Status (o quadro Kanban);
    - *Table* com Status, Priority, Agent, Sprint, Due date;
@@ -28,6 +29,13 @@ Depois, na interface do Project (o CLI não cobre estes itens):
 4. **Sprint**: o campo de iteração é criado pela interface (*+ New field* → *Iteration*), com a duração
    da sprint do time.
 5. **Visibilidade**: mantenha o Project privado se algum repositório vinculado for privado.
+
+## Histórias e épicos
+
+Escreva histórias com `core/templates/user-story.md` (ação `/story`): narrativa, regras de negócio,
+critérios Given/When/Then, fluxo e estados, requisitos não funcionais, ativos e links, metadados,
+Definition of Ready e Definition of Done. Épico → história → tarefa são sub-issues encadeadas.
+Em produtos com vários repositórios, histórias ficam no hub e tarefas no repositório que muda.
 
 ## Uso pelos agentes
 

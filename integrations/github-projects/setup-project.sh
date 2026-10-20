@@ -30,10 +30,12 @@ echo "Status: $STATUS_OPTIONS"
 
 gh project field-create "$number" --owner "$OWNER" --name Priority --data-type SINGLE_SELECT \
   --single-select-options "critical,high,medium,low" >/dev/null
+gh project field-create "$number" --owner "$OWNER" --name Type --data-type SINGLE_SELECT   --single-select-options "epic,story,task,bug,spike" >/dev/null
+gh project field-create "$number" --owner "$OWNER" --name Estimate --data-type NUMBER >/dev/null
 gh project field-create "$number" --owner "$OWNER" --name Agent --data-type TEXT >/dev/null
 gh project field-create "$number" --owner "$OWNER" --name "Due date" --data-type DATE >/dev/null
 gh project field-create "$number" --owner "$OWNER" --name "Completed at" --data-type DATE >/dev/null
-echo "Campos: Priority, Agent, Due date, Completed at"
+echo "Campos: Priority, Type, Estimate, Agent, Due date, Completed at"
 
 echo
 echo "Falta na interface (ver README): desativar os workflows automáticos, criar o campo Sprint (Iteration)"

@@ -4,6 +4,8 @@ Spec/plan/artifacts: <paths>
 Domain/stack/framework/service/version: <verified or gap>
 Risk/phase/environment: <values>
 Expertise selected and rationale: <proof of fit; no invented score>
+Model tier: <deep|standard|light> - <reason; policies/models.md>
+Staffing plan: <templates/staffing.md or path>
 Function/instance: <consultant/author/QA/compliance/technical/security/verifier>
 Author and independent gate identities: <distinct instances>
 Capabilities/delegation and actual permissions: <verified/gaps>
