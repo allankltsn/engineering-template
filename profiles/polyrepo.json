@@ -1,0 +1,5 @@
+{
+  "id": "polyrepo",
+  "description": "Product delivered through several repositories managed from a hub",
+  "instructions": "Apply workflow/polyrepo.md. Requirements and stories live in the hub repository; tasks live in the repository that changes and link back; the single GitHub Project groups them. Contracts and shared packages are released before consumers; each shared artifact has one owner; every repository carries the same engineering bootstrap (same profiles) and is read-only for agents until initialized. Cross-repository completion needs an integration proof. Deploy and rollback order is written in the story. Record credentials by name and location, never value."
+}

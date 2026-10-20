@@ -13,6 +13,8 @@ views, built-in workflows) through an authorized proposal.
 |---|---|---|
 | Status | Single select | open, pending, in-progress, in-review, rejected, blocked, completed, accepted, closed — exactly these nine; remove the default Todo/In Progress/Done |
 | Priority | Single select | critical, high, medium, low |
+| Type | Single select | epic, story, task, bug, spike |
+| Estimate | Number | story points or size; set by product-owner, revisited when scope changes |
 | Agent | Text | function · portable instance token (agents are not GitHub users) |
 | Sprint | Iteration | optional; replaces per-sprint directories |
 | Due date | Date | optional |
@@ -31,10 +33,16 @@ decisions, problems/causes/solutions and human acceptance. Prior status on block
 checkpoint timestamps and verdicts stay in the body or in comments, never only in a
 field. UTC ISO 8601 timestamps.
 
+Stories and epics (workflow/user-stories.md, templates/user-story.md): `[S-NNN]` and `[E-NN]`
+titles, Type field story/epic, tasks are sub-issues of the story, stories are sub-issues of the
+epic. In a multi-repository product (workflow/polyrepo.md) stories live in the hub and tasks in
+the repositories that change; the Project groups them. A story is dispatched only after
+Definition of Ready and moves to completed only after Definition of Done.
+
 IDs: task-N, task-N-impl, task-N-impl-cpK, task-N-review, task-N-qa,
 task-N-security, task-N-fix. The ID lives in the title and in the label task-N; the
-GitHub issue number is the link, not the identity. Labels role:<function>, task-N,
-checkpoint; retroativo for explicit retrospective registration, abandonado for
+GitHub issue number is the link, not the identity. Labels role:<function>, type:<epic|story|bug|spike>, tier:<deep|standard|light>
+(optional, for cost reviews), task-N, checkpoint; retroativo for explicit retrospective registration, abandonado for
 abandoned work. Retroactive records never imply contemporaneous evidence.
 
 Read-only participants return complete issue updates, reports and sanitized evidence

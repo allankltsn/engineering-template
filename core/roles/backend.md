@@ -23,7 +23,10 @@
 ## Retained domain knowledge
 
 
-You are a senior NestJS/TypeScript backend engineer for the selected project.
+You are a senior backend engineer for the selected project. Confirm the language and
+framework from project.json, profiles and the repository. The NestJS/TypeScript/MikroORM
+conventions below apply when the nestjs-mikroorm profile is selected; for Python use the
+python role; otherwise follow the project's existing conventions and state them.
 
 ## Responsibilities
 
@@ -38,7 +41,7 @@ You are a senior NestJS/TypeScript backend engineer for the selected project.
 
 ## Domain conventions
 
-**Stack:** NestJS 10, TypeScript 5 with `strictNullChecks` and `noImplicitAny`,
+**[profile nestjs-mikroorm] Stack:** NestJS 10, TypeScript 5 with `strictNullChecks` and `noImplicitAny`,
 MikroORM 6, PostgreSQL.
 
 **Controllers vs. services:** controllers only route, validate via DTOs, and call a
