@@ -1,0 +1,5 @@
+{
+  "id": "session-continuity",
+  "description": "Opt-in token milestones and crash-resume records for long sessions",
+  "instructions": "Apply workflow/session-continuity.md in full, including its milestone thresholds and closing protocol (single source of the values; this profile does not restate them). Keep the append-only event diary (templates/diary.md) and the live state of at most 25 lines replaced atomically (templates/live-state.md). A project may override the thresholds in its own project instructions; the closing protocol and the rule that an agent in progress when a session breaks is lost, never resumed, do not change. These records never contain prompt text, tool output, secrets or personal data, and use paths relative to the project root."
+}

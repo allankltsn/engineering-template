@@ -1,6 +1,7 @@
 # Participation brief
 Task/issue: <ID/URL> | Objective: <behavior>
 Spec/plan/artifacts: <paths>
+References instead of pasted context: <shared brief, findings file, handoffs; keep this brief to ~15 lines when possible (workflow/economy.md)>
 Domain/stack/framework/service/version: <verified or gap>
 Risk/phase/environment: <values>
 Expertise selected and rationale: <proof of fit; no invented score>

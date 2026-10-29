@@ -404,6 +404,50 @@ class TemplateTests(unittest.TestCase):
                 offenders.append(rel.as_posix())
         self.assertEqual(offenders, [])
 
+    NEW_IN_1_2_0 = (
+        "workflow/economy.md", "workflow/session-continuity.md", "policies/communication.md",
+        "templates/diary.md", "templates/live-state.md", "templates/continuation-prompt.md",
+        "integrations/token-milestones/README.md",
+    )
+
+    def test_operating_practices_are_rendered(self):
+        config, output = template.render(ROOT, ["claude", "codex"], ["base"])
+        self.assertEqual(config["version"], "1.2.0")
+        for path in self.NEW_IN_1_2_0:
+            self.assertIn(f".engineering/{path}", output, path)
+        economy = output[".engineering/workflow/economy.md"].decode()
+        for needle in ("never WHETHER it is verified", "no gate is removed", "One author at a time", "Do not resume a heavy agent"):
+            self.assertIn(needle, economy)
+        continuity = output[".engineering/workflow/session-continuity.md"].decode()
+        for needle in ("100k, 200k, 300k", "400k", "append-only", "25 lines", "LOST"):
+            self.assertIn(needle, continuity)
+        self.assertIn("not verified", output[".engineering/integrations/token-milestones/README.md"].decode().lower())
+        self.assertIn("policies/installations.md", output[".engineering/integrations/token-milestones/README.md"].decode())
+        for name in ("CLAUDE.md", "AGENTS.md", ".claude/agents/backend.md", ".codex/agents/qa.toml"):
+            text = output[name].decode()
+            for ref in ("workflow/economy.md", "workflow/session-continuity.md", "policies/communication.md"):
+                self.assertIn(ref, text, name)
+        # limits stated in templates stay consistent with the contract
+        self.assertIn("40 lines", output[".engineering/templates/handoff.md"].decode())
+        self.assertIn("workflow/economy.md", output[".engineering/templates/brief.md"].decode())
+
+    def test_session_continuity_profile_is_optional_and_valid(self):
+        _, without = template.render(ROOT, ["claude"], ["base"])
+        self.assertNotIn(".engineering/profiles/session-continuity.json", without)
+        _, output = template.render(ROOT, ["claude", "codex"], ["base", "session-continuity"])
+        profile = json.loads(output[".engineering/profiles/session-continuity.json"])
+        self.assertEqual(profile["id"], "session-continuity")
+        self.assertIn("workflow/session-continuity.md", profile["instructions"])
+        template.install(ROOT, self.target, ["claude"], ["base", "session-continuity"])
+        template.check(ROOT, self.target)
+        self.assertTrue(template.check(ROOT)["valid"])
+
+    def test_new_core_files_are_project_neutral(self):
+        banned = re.compile(r"\baura\b|\ballan\b|teotonio|[A-Za-z]:\\|\[MOCK\]|\bLGPD\b", re.IGNORECASE)
+        for path in self.NEW_IN_1_2_0 + ("profiles/session-continuity.json",):
+            text = (ROOT / ("core/" + path if not path.startswith(("integrations/", "profiles/")) else path)).read_text(encoding="utf-8")
+            self.assertIsNone(banned.search(text), path)
+
     def test_every_installation_must_be_registered(self):
         _, output = template.render(ROOT, ["claude", "codex"], ["base"])
         path = "docs/operations/registro-instalacoes.md"

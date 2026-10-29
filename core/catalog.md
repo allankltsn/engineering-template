@@ -57,3 +57,16 @@ Text never proves enforcement; external plugin installation is not inferred.
 | Staffing as a recorded decision | workflow/staffing.md, templates/staffing.md, brief.md Model tier | Team shapes per work type |
 | Delivery quality bar | policies/quality-principles.md | Reuse, idempotence, fault tolerance, scalability, simplicity, verifiability |
 | Mechanical bookkeeping delegated cheaply | roles/scribe.md | No judgment, no approval |
+
+## Additions in 1.2.0 (operating practices)
+| Origin | Canonical target | Notes |
+|---|---|---|
+| Token-saving orchestration practice | workflow/economy.md, templates/brief.md, templates/handoff.md | Changes how work runs, never whether it is verified; no gate removed; core (always rendered) |
+| Session token milestones and crash-resume records | workflow/session-continuity.md, profiles/session-continuity.json, templates/diary.md, live-state.md, continuation-prompt.md | Opt-in profile; configurable thresholds; closing protocol is mandatory at the last milestone |
+| Linked IDs, plain-language sentences, recommendations in questions | policies/communication.md | Core (always rendered); language of the user for messages |
+| Automatic counter and diary mechanism | integrations/token-milestones/README.md | Specification only; not verified; installing it needs policies/installations.md |
+
+Choice recorded: economy and communication are core because they are low-friction and remove no
+gate; session continuity is a profile because it interrupts the user at thresholds and
+mandates a stop, which not every project wants. The continuity workflow file is still rendered
+in the core tree (all core files are), but it binds the project only when the profile is selected.
