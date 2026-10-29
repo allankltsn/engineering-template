@@ -2,6 +2,17 @@
 
 Formato baseado em Keep a Changelog. Versões seguem `template.json`.
 
+## [1.3.0] - 2026-10-29
+
+### Adicionado
+- **`install.py`:** instalador de um comando (`python install.py <projeto>`). Instala ou, se o
+  projeto já tem o template, atualiza reaproveitando perfis, provedores e tiers anteriores;
+  aceita `--profiles`, `--providers`, `--tier` e `--dry-run`, roda `check` ao final e recusa o
+  próprio template como destino. Padrão: `base,product-team,github-projects` para claude e codex.
+- **README:** comandos explicados (instalador e CLI), perfis em linguagem simples, como instalar
+  todos os perfis compatíveis (`hosting-managed` e `vps-k3s` são excludentes), estrutura do projeto
+  comentada e glossário (ações, papéis, skills, políticas, workflows, templates, integrações).
+
 ## [1.2.0] - 2026-10-29
 
 Práticas operacionais evoluídas em uso real, generalizadas (sem nomes de projeto). Base: `main` 1.1.0.
