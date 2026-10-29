@@ -37,6 +37,7 @@ A materialização compartilha regras em `.engineering`, gera arquivos de projet
 | `github-projects` | GitHub Projects como gerenciador: nove estados, campos Priority/Type/Estimate/Agent/Sprint, histórias e sub-issues |
 | `product-team` | Produto, UX/UI, marca, marketing e frontend sênior, com histórias (DoR/DoD) e rodadas de usabilidade |
 | `polyrepo` | Produto em vários repositórios gerenciado a partir de um hub |
+| `session-continuity` | Opcional: marcos de tokens da sessão (perguntar a 100k/200k/300k, encerrar a 400k), diário de eventos e estado vivo para retomar após queda |
 | `nestjs-mikroorm`, `python`, `aws-serverless`, `hosting-managed`, `vps-k3s` | Conhecimento de stack, aplicado só quando selecionado |
 
 ## Quem faz o quê
@@ -59,7 +60,11 @@ São 28 papéis e 11 ações rápidas: qa, security, aws, hosting, kubernetes, s
 
 - **Especialista**: o mais qualificado para o domínio, a stack e o risco; lacuna vira proposta (adaptar, criar papel ou agente externo aprovado), nunca substituição silenciosa.
 - **Camada de modelo**: `deep` (Opus) para os problemas mais difíceis e decisões de segurança, privacidade e arquitetura; `standard` (Sonnet) como padrão do trabalho dos especialistas; `light` (Haiku) para tarefas mecânicas e para os usuários leigos simulados. Sobe de camada por evidência (duas falhas, risco, ambiguidade), desce depois da decisão difícil registrada. Gates nunca ficam abaixo de `standard`, e não se remove gate para economizar tokens.
-- **Economia de tokens**: contexto focado, um especialista por pergunta, paralelismo só em escopos disjuntos, reaproveitamento de evidências.
+- **Economia de tokens**: contexto focado, um especialista por pergunta, paralelismo só em escopos disjuntos, reaproveitamento de evidências. Regras completas em `core/workflow/economy.md` (um autor por vez, brief por referência, handoff em arquivo, não retomar agente pesado, suíte completa só no fim): muda como se executa, nunca se verifica.
+
+## Continuidade de sessão e comunicação
+
+`core/workflow/session-continuity.md` (perfil opcional `session-continuity`): marcos de uso de tokens configuráveis, diário de eventos só de acréscimo, estado vivo curto e retomada após queda (agente em andamento é dado por perdido, nunca retomado). `core/policies/communication.md`: IDs com link para arquivo e linha, nome por extenso, frase em linguagem simples e perguntas sempre com recomendação. O contador automático de tokens é só uma especificação não verificada em [integrations/token-milestones](integrations/token-milestones/README.md).
 
 ## Gestão de produto no GitHub Projects
 

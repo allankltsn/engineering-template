@@ -2,6 +2,36 @@
 
 Formato baseado em Keep a Changelog. Versões seguem `template.json`.
 
+## [1.2.0] - 2026-10-29
+
+Práticas operacionais evoluídas em uso real, generalizadas (sem nomes de projeto). Base: `main` 1.1.0.
+
+### Adicionado
+- **Workflows:** `economy.md` (modo econômico: um autor por vez, brief por referência, handoff em
+  arquivo, não retomar agente pesado, escopo antes de suíte, gates uma vez por snapshot;
+  muda como se executa, nunca se verifica, nenhum gate removido) e `session-continuity.md`
+  (marcos de tokens configuráveis, padrão 100k/200k/300k perguntam e 400k obriga a encerrar;
+  diário de eventos só de acréscimo; estado vivo de até 25 linhas com gravação atômica;
+  retomada após queda sem retomar agente perdido).
+- **Política:** `communication.md` (IDs com link para arquivo e linha, nome por extenso,
+  frase em linguagem simples, perguntas sempre com recomendação).
+- **Templates (total 20):** `diary`, `live-state`, `continuation-prompt`.
+- **Perfil `session-continuity` (opt-in; total 10):** ativa a continuidade de sessão. Economia
+  e comunicação ficam no core por não removerem gate nem interromperem o usuário.
+- **`integrations/token-milestones/README.md`:** especificação do contador automático e do
+  diário; sem código.
+- Testes: arquivos novos no render, perfil válido, `check`, neutralidade dos arquivos novos.
+
+### Alterado
+- `templates/brief.md`: campo de referências; `templates/handoff.md`: limite de 40 linhas.
+- `scripts/template.py`: uma frase em `COMMON` apontando para os novos contratos; sem mudança
+  de comportamento.
+- `README.md`, `core/catalog.md`, `docs/compatibility.md`, `docs/validation.md`.
+
+### Não verificado
+- Nenhum agente real foi observado seguindo economia, marcos ou retomada; o mecanismo
+  automático de marcos é só especificação e não foi validado em runtime.
+
 ## [1.1.0] - 2026-10-19
 
 Generalização do template (sem nomes de projeto no core) e inclusão de gestão de produto.

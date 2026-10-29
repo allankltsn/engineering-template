@@ -20,6 +20,10 @@ O consumo do plugin exige também disponibilizar seus contratos COMMON em .engin
 
 No Claude Code o adapter escreve `model: opus|sonnet|haiku` no cabeçalho de cada agente conforme a camada do papel em template.json (`model_tiers`), e o principal pode sobrescrever o modelo por despacho. Nos agentes de plugin o campo model é lido do cabeçalho do agente; a documentação consultada deve ser rechecada na versão instalada. Um campo gerado nunca prova que o runtime o honrou: confirme com uma sessão real antes de depender dele para custo ou qualidade. Camadas e nomes de modelo mudam com o catálogo do provedor; atualize `model_tiers` em um único lugar.
 
+## Marcos de tokens (1.2.0)
+
+`integrations/token-milestones/README.md` é uma especificação. O template não traz código nem foi validado contra um runtime: o contador de uso da sessão, o bloqueio de despachos e o evento de fim de subagente variam por provedor e versão e precisam ser confirmados na instalação de destino. Sem o mecanismo automático, `workflow/session-continuity.md` vale por estimativa do agente.
+
 ## Integrações e escopo da verificação
 
 Serena: presença local do executável e opções start-mcp-server, --project-from-cwd e --context confirmadas pelo help da CLI em 2026-10-08. O contexto ide-assistant e a conexão MCP devem ser confirmados na instalação de destino. O arquivo de projeto deriva de .serena/project.yml sanitizado, sem nome ou memórias do projeto de origem.

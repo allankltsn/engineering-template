@@ -1,4 +1,5 @@
 # Portable handoff
+Keep it to at most 40 lines (workflow/economy.md); details go to linked files.
 Task issue URL; spec/plan: <relative paths>
 Current/next role and instance: <values>
 Snapshot/base: <SHA + complete local inventory/hashes/diff>
