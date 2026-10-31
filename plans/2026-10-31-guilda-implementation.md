@@ -164,6 +164,7 @@ Expected: `OK (skipped=1)`, 35 tests.
   - `plan_upgrade(source: Path, target: Path) -> Plan` — pure, writes nothing
   - `apply_upgrade(source: Path, target: Path, plan: Plan, approved: bool) -> dict` returning `{"write": [...], "remove": [...], "kept": [...], "migrated": bool}`
   - `same_text(a: bytes, b: bytes) -> bool` — equal after `\r\n`→`\n`.
+  - `parse_version(version: str) -> tuple[int, int, int]` — raises `ValueError` on a malformed version; also used by Task 8.
 - File classification, per managed path: user file == manifest hash (or `same_text` with the installed version) and unchanged in new render → nothing; unchanged by user, changed by template → `write`; user-modified and template unchanged → `keep`; user-modified and template changed → `conflicts`; path now shipped but present as a foreign file with different content → `conflicts`; path retired by the template → `remove` (conflict if user-modified). Files not in the manifest and not in the new render are never listed.
 
 - [ ] **Step 1: Write the failing tests** (build a project with `engine.install`, then mutate):
@@ -179,7 +180,7 @@ Expected: `OK (skipped=1)`, 35 tests.
   - `test_newer_manifest_version_refused` (Review Focus 5): manifest `version` greater than the engine's → `ValueError` mentioning "newer", nothing written.
   - `test_dry_run_plan_has_no_side_effects`.
 - [ ] **Step 2: Run to confirm failure.**
-- [ ] **Step 3: Implement** the interfaces. Reuse providers, profiles and tiers from the manifest. `apply_upgrade` preflights, keeps originals of every file it will touch in memory only, writes, writes the manifest last, and on any exception restores from memory then re-raises; memory is dropped on success. Compare versions with a small `_parse_version(str) -> tuple[int, int, int]`.
+- [ ] **Step 3: Implement** the interfaces. Reuse providers, profiles and tiers from the manifest. `apply_upgrade` preflights, keeps originals of every file it will touch in memory only, writes, writes the manifest last, and on any exception restores from memory then re-raises; memory is dropped on success. Compare versions with `parse_version`.
 - [ ] **Step 4: Run to confirm pass** — `python -m unittest tests.test_guilda_upgrade`.
 - [ ] **Step 5: Commit** — `feat(upgrade): atualização tudo ou nada com migração do nome legado`.
 
@@ -223,7 +224,8 @@ Expected: `OK (skipped=1)`, 35 tests.
   - `@dataclass(frozen=True) class Finding: path: str; line: int; kind: str`
   - `scan(files: dict[str, bytes]) -> list[Finding]` — kinds: `secret` (private-key blocks, `ghp_`/`github_pat_`/`AKIA`/`xox[bp]-`/`sk-` tokens, `password|secret|token\s*[:=]\s*\S{8,}`), `personal-path` (`C:\Users\<name>`, `/home/<name>`, `/Users/<name>`), `binary`, `too-large` (over 1 MiB).
   - `build_issue(title: str, description: str, gist_url: str, paths: list[str], version: str) -> tuple[str, str]` — body lists changed paths, the follow-up work (catalog, tests, changelog, README), the gist link, and the contribution acceptance sentence.
-  - `promote(source, target, title, description, assume_yes=False, runner=subprocess.run, stdin=None, stdout=None) -> dict` returning `{"gist": url, "issue": url}`.
+  - `class PromoteError(Exception)` with `.gist_url: str | None` (set when a gist already exists).
+  - `promote(source, target, title, description, assume_yes=False, runner=subprocess.run, stdin=None, stdout=None) -> dict` returning `{"gist": url, "issue": url}`; raises `PromoteError` on findings, missing auth, declined confirmation or a failed `gh` call.
 - Flow: `gh auth status` must succeed → collect and scan → any finding aborts with the list → print every file to be sent and ask confirmation (declined or non-TTY without `--yes` publishes nothing) → `gh gist create` (secret) → `gh issue create` against `allankltsn/guilda`.
 
 - [ ] **Step 1: Write the failing tests** (a fake `runner` records calls):
@@ -232,7 +234,7 @@ Expected: `OK (skipped=1)`, 35 tests.
   - `test_secret_blocks_publishing_and_calls_nothing` (Review Focus 4): runner never invoked after `gh auth status`.
   - `test_declined_confirmation_publishes_nothing` (Review Focus 4).
   - `test_gh_not_authenticated_is_clear_error`.
-  - `test_issue_creation_failure_reports_gist_url` (Review Focus 4): fake runner fails on `issue create`; result/exception names the gist URL and does not retry.
+  - `test_issue_creation_failure_reports_gist_url` (Review Focus 4): fake runner fails on `issue create`; `PromoteError.gist_url` holds the gist URL and `issue create` was called exactly once.
   - `test_issue_body_contains_gist_link_paths_and_acceptance`.
   - `test_gist_is_secret`: the `gist create` argv does not contain `--public`.
 - [ ] **Step 2: Run to confirm failure.**
@@ -264,7 +266,7 @@ Expected: `OK (skipped=1)`, 35 tests.
   - `test_cli_never_touches_network_when_off`.
   - `test_config_path_per_platform`.
 - [ ] **Step 2: Run to confirm failure.**
-- [ ] **Step 3: Implement.** Compare with the same `_parse_version`; ignore pre-releases.
+- [ ] **Step 3: Implement.** Compare with `upgrade.parse_version`; ignore pre-releases.
 - [ ] **Step 4: Run to confirm pass.**
 - [ ] **Step 5: Commit** — `feat(self-update): atualização global opcional e desligada por padrão`.
 
